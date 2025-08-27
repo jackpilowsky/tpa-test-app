@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 
 export default function ProductSuite(){
   return (
-    <section className="py-16 bg-white">
+    <section className="py-8 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-[##231F20] mb-4 text-3xl">Explore Our Product Suite</p>
           <div className="flex items-center justify-center p-2">
@@ -19,8 +19,8 @@ export default function ProductSuite(){
           <p className="text-[#7c8b9d] mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <div className="flex items-center justify-center space-x-4">
             <Button className="btn-gradient">Lorem Ipsurm</Button>
-            <button className="border-2 border-[#D8DBE2] px-4 py-2 rounded hover:text-[#231f20]">Colerm Ipsum Lorem</button>
-            <button className="border-2 border-[#D8DBE2] px-4 py-2 rounded hover:text-[#231f20]">Forem Ipsum</button>
+            <button className="border-2 border-[#D8DBE2] px-4 py-2 rounded text-[#666] hover:text-[#231f20]">Colerm Ipsum Lorem</button>
+            <button className="border-2 border-[#D8DBE2] px-4 py-2 rounded text-[#666] hover:text-[#231f20]">Forem Ipsum</button>
           </div>
         </div>
       </section>

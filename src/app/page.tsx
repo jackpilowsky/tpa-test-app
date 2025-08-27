@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Hero from './sections/Hero'
 import ProductSuite from './sections/ProductSuite'
+import ValueProposition from "./sections/ValueProposition"
 
 
 export default function Home() {
@@ -10,39 +11,8 @@ export default function Home() {
     <>
       <Hero />
       <ProductSuite />
+      <ValueProposition />
 
-      {/* Feature Section with Chart */}
-      <section className="py-16 bg-[#f9fbfd]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Image
-                src="/financial-trading-chart-with-candlesticks-and-tren.png"
-                alt="Financial Chart"
-                width={600}
-                height={400}
-                className="rounded-lg"
-              />
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold text-[#231f20] mb-4">Jorem ipsum dolor sit amet</h3>
-              <p className="text-[#7c8b9d] mb-6">
-                Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac
-                aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                himenaeos. Curabitur tempus urna at turpis condimentum lobortis.
-              </p>
-              <p className="text-[#7c8b9d] mb-6">Porem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <p className="text-[#7c8b9d] mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <div className="flex items-center space-x-4">
-                <Button className="bg-[#00ab80] hover:bg-[#00ab80]/90 text-white">Book a Discovery Call</Button>
-                <button className="text-[#7c8b9d] hover:text-[#231f20] flex items-center">
-                  View Case Study <ArrowRight className="ml-2 h-4 w-4" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Three Column Features */}
       <section className="py-16 bg-white">
