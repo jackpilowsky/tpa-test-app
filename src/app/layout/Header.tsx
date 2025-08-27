@@ -15,7 +15,7 @@ export default function Header() {
               </div>
             </div>
             <nav className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+              <div className="ml-10 flex items-baseline space-x-8 text-lg">
                 <div className="flex items-center text-[#231f20] hover:text-[#00ab80] cursor-pointer">
                   Solutions <ChevronDown className="ml-1 h-4 w-4" />
                 </div>
