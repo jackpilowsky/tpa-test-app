@@ -22,7 +22,7 @@ export default function Home() {
             alt="Hero Right"
             className="absolute top-40 right-0 hidden md:block"
           />
-          <h1 className="text-5xl font-bold text-[#231f20] mb-6">
+          <h1 className="text-6xl font-bold text-[#231f20] mb-6">
             Horem ipsum dolor sit <span className="text-[#00ab80]">amet consectetur</span>.
           </h1>
           <p className="text-xl text-[#7c8b9d] mb-8 max-w-3xl mx-auto">
