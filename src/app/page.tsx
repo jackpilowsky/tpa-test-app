@@ -1,11 +1,11 @@
-import { ChevronDown, ArrowRight, TrendingUp, Users, Shield, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
 import Hero from './sections/Hero'
 import ProductSuite from './sections/ProductSuite'
 import ValueProposition from "./sections/ValueProposition"
 import FeaturedItems from "./sections/FeaturedItems"
 import CaseStudies from "./sections/CaseStudies"
+import FAQ from "./sections/FAQ"
 
 
 export default function Home() {
@@ -16,44 +16,7 @@ export default function Home() {
       <ValueProposition />
       <FeaturedItems />
       <CaseStudies />
-
-      {/* FAQ Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-[#231f20] text-center mb-12">
-            Frequently Asked
-            <br />
-            Questions
-          </h2>
-          <div className="space-y-4">
-            {[
-              "Sorem ipsum dolor sit amet, consectetur adipiscing elit?",
-              "Vorem ipsum dolor sit amet, consectetur adipiscing elit?",
-              "Dorem ipsum dolor sit amet, consectetur adipiscing elit?",
-              "Gorem ipsum dolor sit amet, consectetur adipiscing elit?",
-              "Qorem ipsum dolor sit amet, consectetur adipiscing elit?",
-            ].map((question, index) => (
-              <div key={index} className="border border-[#d1d9e2] rounded-lg p-6">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-[#231f20]">{question}</h3>
-                  <ChevronDown className="h-5 w-5 text-[#7c8b9d]" />
-                </div>
-                {index === 0 && (
-                  <p className="text-[#7c8b9d] mt-4">
-                    Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac
-                    aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                    inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Ut commodo efficitur
-                    neque.
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Button className="bg-[#00ab80] hover:bg-[#00ab80]/90 text-white">Book a Discovery Call</Button>
-          </div>
-        </div>
-      </section>
+      <FAQ />
 
       {/* Bottom CTA Section */}
       <section className="py-16 bg-[#f9fbfd]">
