@@ -6,6 +6,7 @@ import ValueProposition from "./sections/ValueProposition"
 import FeaturedItems from "./sections/FeaturedItems"
 import CaseStudies from "./sections/CaseStudies"
 import FAQ from "./sections/FAQ"
+import Testimonials from "./sections/Testimonials"
 
 
 export default function Home() {
@@ -17,35 +18,7 @@ export default function Home() {
       <FeaturedItems />
       <CaseStudies />
       <FAQ />
-
-      {/* Bottom CTA Section */}
-      <section className="py-16 bg-[#f9fbfd]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-[#231f20] mb-8">
-            Horem ipsum dolor sit
-            <br />
-            amet,{" "}
-            <span className="text-[#00ab80]">
-              consectetur
-              <br />
-              adipiscing elit.
-            </span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="text-left">
-                <div className="text-[#00ab80] font-bold text-lg mb-2">LOGO</div>
-                <h3 className="font-semibold text-[#231f20] mb-2">Rorem ipsum</h3>
-                <p className="text-sm text-[#7c8b9d] mb-4">Sorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p className="text-sm text-[#7c8b9d]">
-                  Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac
-                  aliquet odio mattis.
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       {/* Final CTA with Gradient */}
       <section className="py-20 bg-gradient-to-r from-[#c3ff00] to-[#00ab80]">
