@@ -5,8 +5,9 @@ import bookmark_flag from '../images/bookmark-flag.svg'
 import squigglyArrow from '../images/squiggly-arrow.svg'
 
 export default function ValueProposition() {
-  return (<section className="py-8 bg-white">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  return (<section className="py-8" >
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="absolute inset-0 bg-[url('/us-map.png')] bg-cover bg-center opacity-50"></div>
       <h2 className="text-4xl font-bold text-[#231f20] text-center ">Rorem ipsum dolor</h2>
       <div className="flex items-center justify-center p-6">
         <div

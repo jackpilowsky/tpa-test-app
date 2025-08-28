@@ -5,6 +5,7 @@ import Hero from './sections/Hero'
 import ProductSuite from './sections/ProductSuite'
 import ValueProposition from "./sections/ValueProposition"
 import FeaturedItems from "./sections/FeaturedItems"
+import CaseStudies from "./sections/CaseStudies"
 
 
 export default function Home() {
@@ -14,45 +15,7 @@ export default function Home() {
       <ProductSuite />
       <ValueProposition />
       <FeaturedItems />
-
-      {/* Case Studies Section */}
-      <section className="py-16 bg-[#f9fbfd]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-[#7c8b9d] mb-4">Sorem ipsum</p>
-            <h2 className="text-4xl font-bold text-[#231f20]">Dorem ipsum dolor sit</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((item) => (
-              <div key={item} className="bg-white rounded-lg p-6">
-                <Image
-                  src="/financial-chart-with-green-trend-line.png"
-                  alt="Case Study Chart"
-                  width={300}
-                  height={200}
-                  className="rounded-lg mb-4"
-                />
-                <h3 className="font-semibold text-[#231f20] mb-2">Gorem ipsum dolor</h3>
-                <p className="text-sm text-[#7c8b9d] mb-4">
-                  Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac
-                  aliquet odio mattis.
-                </p>
-                <button className="text-[#00ab80] hover:text-[#00ab80]/80 flex items-center text-sm">
-                  Read Case Study <ArrowRight className="ml-1 h-3 w-3" />
-                </button>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center mt-8 space-x-2">
-            <button className="p-2 rounded-full border border-[#d1d9e2] hover:bg-[#f9fbfd]">
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-            <button className="p-2 rounded-full border border-[#d1d9e2] hover:bg-[#f9fbfd]">
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
-      </section>
+      <CaseStudies />
 
       {/* FAQ Section */}
       <section className="py-16 bg-white">
