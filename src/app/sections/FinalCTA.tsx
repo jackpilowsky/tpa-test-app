@@ -11,11 +11,7 @@ export default function FinalCTA() {
           <span className="text-white">dolor sit</span>
         </h2>
         <p className="text-[#231f20] mb-8 font-semibold text-4xl">Rorem ipsum dolor sit amet consectetur</p>
-        <p className="text-[#231f20] mb-8 max-w-2xl mx-auto font-family: Fustat;
-    font-normal
-    text-lg
-    leading-[120%]
-">
+        <p className="text-[#231f20] mb-8 max-w-2xl mx-auto  font-normal text-lg leading-[120%]">
           Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet
           odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
         </p>
