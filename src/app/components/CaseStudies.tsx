@@ -5,7 +5,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { Card } from "@/components/ui/card"
+
+
+import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import skyline from '../images/skyline.png'
 
@@ -31,7 +34,7 @@ export default function CaseStudies() {
           <CarouselContent className="-ml-4">
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <CarouselItem key={item} className="basis-1/4 pl-4">
-                <div className="bg-[linear-gradient(203.25deg,#D8DBE2_13.63%,#FFFCFF_81.93%)] rounded-[10px] w-full p-4">
+                <Card>
                   <Image
                     src={skyline.src}
                     alt={`Case Study ${item}`}
@@ -47,7 +50,7 @@ export default function CaseStudies() {
                   <button className="text-[#00ab80] hover:text-[#00ab80]/80 flex items-center text-sm">
                     Read Case Study <ArrowRight className="ml-1 h-3 w-3" />
                   </button>
-                </div>
+                </Card>
               </CarouselItem>
             ))}
           </CarouselContent>

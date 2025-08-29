@@ -3,30 +3,44 @@ import { Search, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image"
 import { useQuery } from '@tanstack/react-query'
+import skyline from '../images/skyline.png'
+import { WPPost } from "../types"
+import { useMemo, useState } from "react"
+import DOMPurify from "dompurify";
 
 const SOURCE_URL = "https://futureoffounders.com/wp-json/wp/v2/posts"
 
-export default function BlogPage() {
+function HTMLRenderer(unsafeHtml: string) {
+  const safeHtml = DOMPurify.sanitize(unsafeHtml);
+  return (
+    <span dangerouslySetInnerHTML={{ __html: safeHtml }} />
+  );
+}
 
-  const { data, isLoading, error } = useQuery({
+
+export default function BlogPage() {
+  const [search, setSearch] = useState<string>("")
+
+  const { data, isLoading, error } = useQuery<WPPost[]>({
     queryKey: ['posts'],
     queryFn: () => fetch(SOURCE_URL).then(res => res.json()),
   })
-  console.log(data)
 
-  const blogPosts = Array(12)
-    .fill(null)
-    .map((_, i) => ({
-      id: i + 1,
-      title: "Corem ipsum dolor",
-      description:
-        "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
-      image: `/placeholder.svg?height=200&width=300&query=modern city skyline with green geometric shapes`,
-    }))
+  const blogPosts = useMemo(() => {
+    if (!data) {
+      return []
+    }
+    return data.filter(post => post.title.rendered.toLowerCase().includes(search.toLowerCase()))
+  }, [data, search])
+
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Error loading posts</div>
+  console.log(blogPosts)
 
   const featuredPosts = blogPosts.slice(0, 4)
-  const allPosts = blogPosts.slice(4, 12)
+  const allPosts = blogPosts.slice(0, 12)
 
   return (
     <div className="min-h-screen text-white">
@@ -44,7 +58,7 @@ export default function BlogPage() {
         <div className="flex gap-4 mb-12">
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#666666] w-5 h-5" />
-            <Input className="pl-12 bg-white text-black border-0 h-12 rounded-lg" placeholder="" />
+            <Input onChange={e => setSearch(e.target.value)} className="pl-12 bg-white text-black border-0 h-12 rounded-lg" placeholder="" />
           </div>
           <Button
             variant="outline"
@@ -61,16 +75,18 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredPosts.map((post) => (
               <Card key={post.id} className="bg-white text-black rounded-xl overflow-hidden">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={post.image || "/placeholder.svg"}
-                    alt="City skyline with green geometric shapes"
-                    className="w-full h-full object-cover"
+                <div className="overflow-hidden">
+                  <Image
+                    src={skyline.src}
+                    alt={`Case Study ${post.id}`}
+                    width={264}
+                    height={172}
+                    className="rounded-lg"
                   />
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg mb-3">{post.title}</h3>
-                  <p className="text-[#666666] text-sm leading-relaxed mb-4">{post.description}</p>
+                <CardContent>
+                  <h3 className="font-semibold text-lg mb-3">{HTMLRenderer(post.title.rendered)}</h3>
+                  <p className="text-[#666666] text-sm leading-relaxed mb-4">{HTMLRenderer(post.excerpt.rendered)}</p>
                   <button className="flex items-center text-[#00ab80] font-medium text-sm hover:underline">
                     Read Case Study
                     <ChevronRight className="ml-1 w-4 h-4" />
@@ -87,16 +103,18 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {allPosts.map((post) => (
               <Card key={post.id} className="bg-white text-black rounded-xl overflow-hidden">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={post.image || "/placeholder.svg"}
-                    alt="City skyline with green geometric shapes"
-                    className="w-full h-full object-cover"
+                <div className="overflow-hidden">
+                  <Image
+                    src={skyline.src}
+                    alt={`Case Study ${post.id}`}
+                    width={264}
+                    height={172}
+                    className="rounded-lg"
                   />
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg mb-3">{post.title}</h3>
-                  <p className="text-[#666666] text-sm leading-relaxed mb-4">{post.description}</p>
+                <CardContent>
+                  <h3 className="font-semibold text-lg mb-3">{HTMLRenderer(post.title.rendered)}</h3>
+                  <p className="text-[#666666] text-sm leading-relaxed mb-4">{HTMLRenderer(post.excerpt.rendered)}</p>
                   <button className="flex items-center text-[#00ab80] font-medium text-sm hover:underline">
                     Read Case Study
                     <ChevronRight className="ml-1 w-4 h-4" />
