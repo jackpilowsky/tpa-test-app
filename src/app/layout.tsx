@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
+import Providers from './providers'
 import "@fontsource/fustat/400.css"; // weight 400 (regular)
 import "@fontsource/fustat/700.css"; // weight 700 (bold)
 import "./globals.css";
@@ -23,9 +24,12 @@ export default function RootLayout({
         className={`font-fustat antialiased`}
       >
         <div className="min-h-screen bg-white">
-          <Header />
-          {children}
-          <Footer />
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+          </Providers>
+
         </div>
       </body>
     </html>
